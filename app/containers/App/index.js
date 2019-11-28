@@ -9,18 +9,14 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-
-import HomePage from 'containers/HomePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-
+import MultiLanguage from 'containers/MultiLanguage/loadable';
 import GlobalStyle from '../../global-styles';
 
 export default function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
+        <Route exact path="/multi" component={MultiLanguage} />
       </Switch>
       <GlobalStyle />
     </div>

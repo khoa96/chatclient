@@ -41,12 +41,9 @@ If you have containers that should be available throughout the app, like a `Navi
 import { combineReducers } from 'redux';
 ...
 
-import navigationBarReducer from 'containers/NavigationBar/reducer';
-
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
     global: globalReducer,
-    language: languageProviderReducer,
     router: connectRouter(history),
     navigationBar: navigationBarReducer,
     ...injectedReducers,
