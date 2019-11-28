@@ -1,4 +1,10 @@
 import React from 'react';
-export default function MultiLanguage() {
-  return <div>aaaaaa</div>;
+import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
+function MultiLanguage({ t }) {
+  return <div>{t('home.hello')}</div>;
 }
+MultiLanguage.propTypes = {
+  t: PropTypes.func.isRequired,
+};
+export default withTranslation()(MultiLanguage);
