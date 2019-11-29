@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  *, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   html,
   body {
     height: 100%;
@@ -19,12 +25,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: #fafafa;
     min-height: 100%;
     min-width: 100%;
-  }
-
-  p,
-  label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.5em;
   }
 `;
 

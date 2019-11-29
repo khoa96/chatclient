@@ -12,13 +12,23 @@ import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 import { ConnectedRouter } from 'connected-react-router';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
+// import theme
+import theme from 'theme';
+// import bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+// import ion icons font
+import './public/css/ionicons.min.css';
+// import font
+import './public/css/style.css';
 // Import root app
 import App from 'containers/App';
 import './i18n';
+
 // Load the favicon and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
@@ -35,7 +45,9 @@ const render = () => {
   ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </ConnectedRouter>
     </Provider>,
     MOUNT_NODE,
