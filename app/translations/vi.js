@@ -8,4 +8,8 @@ export default {
     alertInfo: 'đây là thông báo loạiinfo',
     alertDefault: 'đây là thông báo loại Default',
   },
+  signin: {
+    usernamePlaceholder: 'ten dang nhap',
+    passwordPlaceholder: 'mat khau',
+  },
 };
