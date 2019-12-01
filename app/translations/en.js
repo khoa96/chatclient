@@ -8,4 +8,8 @@ export default {
     alertInfo: 'This is a info alert—check it out!',
     alertDefault: 'This is a default alert—check it out!',
   },
+  signin: {
+    usernamePlaceholder: 'User name',
+    passwordPlaceholder: 'Password',
+  },
 };
