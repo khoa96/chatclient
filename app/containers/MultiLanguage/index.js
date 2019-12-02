@@ -1,16 +1,21 @@
 /* eslint-disable default-case */
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, { useState } from 'react';
 import { withTranslation } from 'react-i18next';
 import Button from 'components/commons/Button';
 import Alert from 'components/commons/Alert';
 import InputText from 'components/commons/InputText';
 import InputSearch from 'components/commons/InputSearch';
+import GlobalModal from 'containers/GlobalModal';
 import FacebookIcon from 'images/icons/facebook.svg';
 import GoogleIcon from 'images/icons/google.svg';
 import GithubhIcon from 'images/icons/github.svg';
 
 function MultiLanguage() {
+  const [toggleModal, setToggleModal] = useState(false);
+  const handleShowModal = () => {
+    setToggleModal(!toggleModal);
+  }
   return (
     <React.Fragment>
       <h1>STYLE GUIDE COMPONENT</h1>
@@ -63,8 +68,18 @@ function MultiLanguage() {
         isShowIcon
         isRequired
       />
-
       <InputSearch />
+
+      <hr />
+      {/* demo global modal */}
+      <Button context="primary" onClick={handleShowModal}>
+        <span>Show Modal</span>
+      </Button>
+      { toggleModal && (
+        <GlobalModal width="600px" height="500px">
+         nguyen dang khoa hoc vien cong nghe buu chinh vien thong
+        </GlobalModal>
+      )}
     </React.Fragment>
   );
 }

@@ -9,7 +9,10 @@ export default {
     alertDefault: 'đây là thông báo loại Default',
   },
   signin: {
-    usernamePlaceholder: 'ten dang nhap',
-    passwordPlaceholder: 'mat khau',
+    usernamePlaceholder: 'Tên đăng nhập',
+    passwordPlaceholder: 'Mật khẩu',
+  },
+  homeChat: {
+    inputSearchPlaceholder: 'Tìm kiếm cho cuộc trò chuyện...',
   },
 };
