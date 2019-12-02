@@ -12,4 +12,7 @@ export default {
     usernamePlaceholder: 'User name',
     passwordPlaceholder: 'Password',
   },
+  homeChat: {
+    inputSearchPlaceholder: 'Search for conversations...',
+  },
 };

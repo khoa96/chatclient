@@ -27,6 +27,13 @@ const theme = {
   // gray
   grayPrimary: '#e8e8e8',
   grayPrimary2: '#cfcfcf',
+  grayPrimary3: '#f4f7fa',
+  grayPrimary4: '#d3d8dd',
+  grayPrimary5: '#acacac',
+  grayPrimary6: '#ced4da',
+
+  // blue
+  bluePrimary: '#4179c3',
 };
 
 export default theme;
