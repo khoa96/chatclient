@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const InputTextWrapper = styled.div`
-    width: 500px;
+    width: 100%;
     display: flex;
     margin-bottom: 15px;
     justify-content: space-between;

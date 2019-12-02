@@ -4,7 +4,7 @@ export const InputSearchWrapper = styled.div`
   border: 1px solid ${props => props.theme.grayPrimary4};
   border-radius: 8px;
   padding: 10px 15px;
-  width: 500px;
+  width: 100%;
   display: flex;
   align-items: center;
   background-color: ${props => props.theme.grayPrimary3};

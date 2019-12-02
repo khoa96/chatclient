@@ -11,7 +11,18 @@ export default {
   signin: {
     usernamePlaceholder: 'User name',
     passwordPlaceholder: 'Password',
+    emailPlaceholder: 'Email address',
   },
+  signup: {
+    signupTitle: 'Sign Up',
+    usernamePlaceholder: 'User name',
+    passwordPlaceholder: 'Password',
+    emailPlaceholder: 'Email address',
+    titleListContact: 'Sign up with',
+    confirmSignUp: 'Already have account?',
+    clickHere: 'Click here',
+  },
+
   homeChat: {
     inputSearchPlaceholder: 'Search for conversations...',
   },

@@ -34,6 +34,9 @@ const theme = {
 
   // blue
   bluePrimary: '#4179c3',
+
+  // dark
+  darkPrimary: '#404040',
 };
 
 export default theme;
