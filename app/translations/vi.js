@@ -11,6 +11,16 @@ export default {
   signin: {
     usernamePlaceholder: 'Tên đăng nhập',
     passwordPlaceholder: 'Mật khẩu',
+    emailPlaceholder: 'Địa chỉ email',
+  },
+  signup: {
+    signupTitle: 'Đăng Kí',
+    usernamePlaceholder: 'Tên đăng nhập',
+    passwordPlaceholder: 'Mật khẩu',
+    emailPlaceholder: 'Địa chỉ email',
+    titleListContact: 'Đăng kí với',
+    confirmSignUp: 'Bạn đã có tài khoản?',
+    clickHere: 'Đăng nhập ngay',
   },
   homeChat: {
     inputSearchPlaceholder: 'Tìm kiếm cho cuộc trò chuyện...',

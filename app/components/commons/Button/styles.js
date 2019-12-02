@@ -4,7 +4,7 @@ const buttonPrimary = color => `
   width: 100%;
   background: ${color};
   border-radius: 6px;
-  padding: 16px 25px;
+  padding: 10px 20px;
 `;
 
 const buttonLink = color => `
@@ -12,7 +12,7 @@ const buttonLink = color => `
   padding: 0;
   border-bottom: 1px solid;
   color: ${color};
-  background: none;
+  background: white;
 `;
 
 const renderBackgroundColorCircleButton = props => {
@@ -41,6 +41,7 @@ const buttonCircle = props => `
   height: 40px;
   border-radius: 50%;
   font-size: 20px;
+  margin-right: 8px;
   background: ${renderBackgroundColorCircleButton(props)};
 `;
 
