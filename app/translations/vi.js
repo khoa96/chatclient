@@ -12,6 +12,8 @@ export default {
     usernamePlaceholder: 'Tên đăng nhập',
     passwordPlaceholder: 'Mật khẩu',
     emailPlaceholder: 'Địa chỉ email',
+    signInTitle: 'Đăng Nhập',
+    clickHere: 'Đằng kí tài khoản',
   },
   signup: {
     signupTitle: 'Đăng Kí',
@@ -21,6 +23,9 @@ export default {
     titleListContact: 'Đăng kí với',
     confirmSignUp: 'Bạn đã có tài khoản?',
     clickHere: 'Đăng nhập ngay',
+    introduce:
+      'Talkshak is a simplest and friendly interface Messagner or plateform',
+    action: 'Login Now And Enjoy!',
   },
   homeChat: {
     inputSearchPlaceholder: 'Tìm kiếm cho cuộc trò chuyện...',

@@ -12,6 +12,8 @@ export default {
     usernamePlaceholder: 'User name',
     passwordPlaceholder: 'Password',
     emailPlaceholder: 'Email address',
+    signInTitle: 'Sign In',
+    clickHere: 'Create account',
   },
   signup: {
     signupTitle: 'Sign Up',
@@ -20,7 +22,10 @@ export default {
     emailPlaceholder: 'Email address',
     titleListContact: 'Sign up with',
     confirmSignUp: 'Already have account?',
-    clickHere: 'Click here',
+    clickHere: 'Login now!',
+    introduce:
+      'Talkshak is a simplest and friendly interface Messagner or plateform',
+    action: 'Login Now And Enjoy!',
   },
 
   homeChat: {

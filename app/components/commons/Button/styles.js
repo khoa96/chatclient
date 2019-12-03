@@ -10,7 +10,6 @@ const buttonPrimary = color => `
 const buttonLink = color => `
   border: none;
   padding: 0;
-  border-bottom: 1px solid;
   color: ${color};
   background: white;
 `;

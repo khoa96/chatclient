@@ -25,7 +25,7 @@ export const InputTextWrapper = styled.div`
 export const InputWrapper = styled.input`
     flex-grow: 1;
     border: none;
-    padding: 13px 20px;
+    padding: 13px 45px 13px 20px;
     background-color: white;
     border-radius: 6px;
     &:focus {
