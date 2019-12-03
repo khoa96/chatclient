@@ -1,5 +1,5 @@
 const languageKey = 'lang';
-const languageDefault = 'vi';
+const languageDefault = 'en';
 
 export const setLanguage = lang => {
   localStorage.setItem(languageKey, lang);

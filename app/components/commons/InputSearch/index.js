@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { InputTextWrapper, InputSearchWrapper } from './styles';
 
-function InputSearch({ t, value, defaultValue, onChange }) {
+function InputSearch({ t, value, defaultValue, onChange, name }) {
   return (
     <InputSearchWrapper>
       <InputTextWrapper>
@@ -19,6 +19,7 @@ function InputSearch({ t, value, defaultValue, onChange }) {
           onChange={onChange}
           value={value}
           defaultValue={defaultValue || ''}
+          name={name}
         />
       </InputTextWrapper>
       <button type="button" className="btn-create">
@@ -35,6 +36,7 @@ InputSearch.propTypes = {
   value: PropTypes.string,
   defaultValue: PropTypes.string,
   onChange: PropTypes.func,
+  name: PropTypes.string.isRequired,
 };
 
 export default withTranslation()(InputSearch);

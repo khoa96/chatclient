@@ -25,6 +25,7 @@ const  renderAlertColor = props => {
 }
 export const AlertWrapper = styled.div`
   width: 100%;
+  max-width: 340px;
   padding: 10px 15px;
   border: 1px solid transparent;
   font-size: 15px;
@@ -34,7 +35,7 @@ export const AlertWrapper = styled.div`
   justify-content: space-between;
   color: ${props => renderAlertColor(props).color};
   background-color: ${props => renderAlertColor(props).background};
-  
+
   .close-icon {
     font-size: 18px;
     color: rgba(0, 0, 0, 0.4);

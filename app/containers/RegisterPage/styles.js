@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export const LoginPageWrapper = styled.div`
+export const RegisterPageWrapper = styled.div`
   width: 100%;
   height: 100vh;
   background: ${props => props.theme.backgroundColorPrimary};
@@ -9,18 +9,18 @@ export const LoginPageWrapper = styled.div`
   align-items: center;
 `;
 
-export const LoginFormWrapper = styled.div`
+export const RegisterFormWrapper = styled.div`
   width: 40%;
   display: flex;
   justify-content: flex-end;
 `;
 
-export const LoginForm = styled.div`
+export const RegisterForm = styled.div`
   min-width: 400px;
+  border-radius: 3px;
   background-color: ${props => props.theme.whitePrimary};
   flex-shrink: 0;
   padding: 30px;
-  border-radius: 3px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 
   .login-form-header {
