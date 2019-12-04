@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _isEmpty from 'lodash/isEmpty';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
@@ -11,7 +12,7 @@ import Button from 'components/commons/Button';
 import FacebookIcon from 'images/icons/facebook.svg';
 import GoogleIcon from 'images/icons/google.svg';
 import GithubhIcon from 'images/icons/github.svg';
-import { getUserRegisterSelector } from './selectors';
+import { getUserRegisterSelector, getErrorSelector } from './selectors';
 import { handleChangeUser, handleSubmitRegisterUser } from './actions';
 import {
   RegisterPageWrapper,
@@ -27,6 +28,7 @@ function RegisterPreviewPage({
   user,
   dispatchHandleChangeUser,
   dispatchHandleSubmitRegisterUser,
+  error,
 }) {
   const { username, email, password } = user;
 
@@ -53,6 +55,7 @@ function RegisterPreviewPage({
             <InputText
               placeholder="signup.usernamePlaceholder"
               name="username"
+              type="text"
               iconClassName="ion-md-person"
               isShowIcon
               isRequired
@@ -62,6 +65,7 @@ function RegisterPreviewPage({
             <InputText
               placeholder="signup.emailPlaceholder"
               name="email"
+              type="text"
               iconClassName="ion-md-mail"
               isShowIcon
               isRequired
@@ -71,13 +75,18 @@ function RegisterPreviewPage({
             <InputText
               placeholder="signup.passwordPlaceholder"
               name="password"
+              type="password"
               iconClassName="ion-md-lock"
               isShowIcon
               isRequired
               onChange={onChangeUser}
               value={password}
             />
-            <Button context="primary" onClick={onSubmitRegister}>
+            <Button
+              context="primary"
+              onClick={onSubmitRegister}
+              disabled={!_isEmpty(error)}
+            >
               {t('signup.signupTitle')}
             </Button>
             <ListContactWrapper>
@@ -119,6 +128,7 @@ function RegisterPreviewPage({
 
 const mapStateToProps = createStructuredSelector({
   user: getUserRegisterSelector(),
+  error: getErrorSelector(),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -137,6 +147,7 @@ RegisterPreviewPage.propTypes = {
   user: PropTypes.object,
   dispatchHandleChangeUser: PropTypes.func,
   dispatchHandleSubmitRegisterUser: PropTypes.func,
+  error: PropTypes.object,
 };
 
 RegisterPreviewPage.defaultProps = {

@@ -42,6 +42,7 @@ function LoginPreviewPage({ t }) {
               iconClassName="ion-md-lock"
               isShowIcon
               isRequired
+              error
             />
             <Button context="primary">{t('signin.signInTitle')}</Button>
             <ListContactWrapper>

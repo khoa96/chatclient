@@ -1,7 +1,9 @@
 import request from 'utils/RequestHelper';
-
-export const handleSubmitRegisterUserAPI = payload =>
-  request.post({
-    url: '/register',
-    data: payload,
-  });
+export default {
+  handleSubmitRegisterUserAPI(payload) {
+    return request.post({
+      url: '/register',
+      data: payload,
+    });
+  },
+};

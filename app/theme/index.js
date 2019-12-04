@@ -31,9 +31,11 @@ const theme = {
   grayPrimary4: '#d3d8dd',
   grayPrimary5: '#acacac',
   grayPrimary6: '#ced4da',
+  grayPrimary7: '#D1D8D9',
 
   // blue
   bluePrimary: '#4179c3',
+  blueMedium1: '#45dcc7',
 
   // dark
   darkPrimary: '#404040',
