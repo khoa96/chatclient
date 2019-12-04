@@ -1,10 +1,10 @@
 import { takeLatest, all, call } from 'redux-saga/effects';
-import { handleSubmitRegisterUserAPI } from 'services/userServices';
+import userAPI from 'services';
 import { HANDLE_SUBMIT_REGISTER_USER } from './constanst';
 
 function* handleSubmitRegisterUserProcess({ payload }) {
   try {
-    const result = yield call(handleSubmitRegisterUserAPI, payload);
+    const result = yield call(userAPI.handleSubmitRegisterUserAPI, payload);
     console.log(result);
   } catch (error) {
     console.log(error);

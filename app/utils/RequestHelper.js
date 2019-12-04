@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { BASE_URL } from './constants';
+import { getLanguage } from './sessionStorage';
 
+const lang = getLanguage();
 const axiosIntance = axios.create({
   baseURL: BASE_URL,
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
+    Accept: 'application/json',
+    lang,
   },
 });
 

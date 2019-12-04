@@ -11,7 +11,6 @@ export const InputTextWrapper = styled.div`
     background-color: white;
     box-shadow: 0 6px 17px rgba(0, 0, 0, 0.1);
     position: relative;
-
     .input-icon {
       position: absolute;
       right: 15px;
@@ -24,12 +23,15 @@ export const InputTextWrapper = styled.div`
 
 export const InputWrapper = styled.input`
     flex-grow: 1;
-    border: none;
+    border: ${props => props.error ? '1px solid red' : 'none'};
     padding: 13px 45px 13px 20px;
     background-color: white;
     border-radius: 6px;
     &:focus {
         outline: none;
+        border-width: 1px;
+        border-style: solid;
+        border-color: ${props => props.error ? 'red' : props.theme.blueMedium1};
     }
     &::placeholder {
         color: ${props => props.theme.grayPrimary2};
@@ -38,7 +40,6 @@ export const InputWrapper = styled.input`
     }
     &:focus {
         background: white;
-        border: none!important;
         -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);

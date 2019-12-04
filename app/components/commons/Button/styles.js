@@ -10,7 +10,7 @@ const buttonPrimary = color => `
 const buttonLink = color => `
   border: none;
   padding: 0;
-  color: ${color};
+  color: ${color} !important;
   background: white;
 `;
 
@@ -76,6 +76,13 @@ export const ButtonWrapper = styled.button`
     -ms-opacity: 0.9;
     -o-opacity: 0.9;
     opacity: 0.9;
+  }
+  &:disabled,
+  &.disabled {
+    color: white;
+    border-color: ${props => props.theme.grayPrimary7};
+    opacity: 0.5;
+    pointer-events: none !important;
   }
   img {
     display: block;

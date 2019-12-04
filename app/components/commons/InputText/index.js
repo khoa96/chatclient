@@ -15,18 +15,21 @@ function InputText({
   name,
   autoComplete,
   value,
+  error,
+  type,
 }) {
   return (
     <InputTextWrapper>
       <InputWrapper
         defaultValue={defaultValue || ''}
         value={value}
-        type="text"
         placeholder={t(placeholder)}
         onChange={onChange}
         required={isRequired}
         name={name}
         autoComplete={autoComplete ? 'on' : 'off'}
+        error={error}
+        type={type}
       />
       {isShowIcon && (
         <span className="input-icon">
@@ -48,6 +51,8 @@ InputText.propTypes = {
   isRequired: PropTypes.bool.isRequired,
   autoComplete: PropTypes.bool,
   value: PropTypes.string,
+  error: PropTypes.bool,
+  type: PropTypes.string,
 }
 
 InputWrapper.defaultProps = {
