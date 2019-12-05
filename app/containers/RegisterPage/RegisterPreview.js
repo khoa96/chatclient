@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _isEmpty from 'lodash/isEmpty';
+import _get from 'lodash/get';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
@@ -8,7 +9,10 @@ import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import Alert from 'components/commons/Alert';
 import InputText from 'components/commons/InputText';
+import InputCheckbox from 'components/commons/InputCheckbox';
 import Button from 'components/commons/Button';
+import InputPassword from 'components/commons/InputPassword';
+import FlashMessage from 'containers/App/flashMessage';
 import FacebookIcon from 'images/icons/facebook.svg';
 import GoogleIcon from 'images/icons/google.svg';
 import GithubhIcon from 'images/icons/github.svg';
@@ -31,6 +35,9 @@ function RegisterPreviewPage({
   error,
 }) {
   const { username, email, password } = user;
+  const usernameError = _get(error, 'username', '');
+  const passwordError = _get(error, 'password', '');
+  const emailError = _get(error, 'email', '');
 
   const onChangeUser = event => {
     const { name, value } = event.target;
@@ -41,13 +48,26 @@ function RegisterPreviewPage({
     dispatchHandleSubmitRegisterUser(user);
   };
 
+  const handleCheckButtonStatus = () => {
+    if (username && email && password) return false;
+    return true;
+  };
+
+  const renderListError = () => {
+    if (!_isEmpty(error)) {
+      return Object.keys(error).map((item, index) => (
+        <Alert type="danger" message={error[item]} key={`${item}-${index}`} />
+      ));
+    }
+    return null;
+  };
+
   return (
     <RegisterPageWrapper>
+      <FlashMessage />
       <RegisterFormWrapper>
         <RegisterForm>
-          <div className="notification-box">
-            <Alert type="success" message="home.alertSuccess" />
-          </div>
+          <div className="notification-box">{renderListError()}</div>
           <div className="login-form-header">
             <span>{t('signup.signupTitle')}</span>
           </div>
@@ -61,6 +81,7 @@ function RegisterPreviewPage({
               isRequired
               onChange={onChangeUser}
               value={username}
+              error={usernameError}
             />
             <InputText
               placeholder="signup.emailPlaceholder"
@@ -71,8 +92,9 @@ function RegisterPreviewPage({
               isRequired
               onChange={onChangeUser}
               value={email}
+              error={emailError}
             />
-            <InputText
+            <InputPassword
               placeholder="signup.passwordPlaceholder"
               name="password"
               type="password"
@@ -81,11 +103,13 @@ function RegisterPreviewPage({
               isRequired
               onChange={onChangeUser}
               value={password}
+              error={passwordError}
             />
+            <InputCheckbox text={t('commons.remember')} name="remember" />
             <Button
               context="primary"
               onClick={onSubmitRegister}
-              disabled={!_isEmpty(error)}
+              disabled={handleCheckButtonStatus()}
             >
               {t('signup.signupTitle')}
             </Button>

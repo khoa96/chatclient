@@ -1,11 +1,16 @@
 export default {
+  commons: {
+    showPassword: 'Hiển thị mật khẩu',
+    hidenPassword: 'Ẩn mật khẩu',
+    remember: 'Lưu trạng thái đăng nhập',
+  },
   home: {
     hello: 'chao mung ban den voi reactjs',
     alertPrimary: 'đây là thông báo loại primary',
     alertSuccess: 'đây là thông báo loại success',
     alertDanger: 'đây là thông báo loại  danger',
-    alertWarning: 'đây là thông báo loạiso warning',
-    alertInfo: 'đây là thông báo loạiinfo',
+    alertWarning: 'đây là thông báo loại warning',
+    alertInfo: 'đây là thông báo loại info',
     alertDefault: 'đây là thông báo loại Default',
   },
   signin: {

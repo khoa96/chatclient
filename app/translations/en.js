@@ -1,4 +1,9 @@
 export default {
+  commons: {
+    showPassword: 'Show password',
+    hidenPassword: 'Hide password',
+    remember: 'Save login status.',
+  },
   home: {
     hello: 'wellcome to reactjs',
     alertPrimary: 'This is a primary alert—check it out!',

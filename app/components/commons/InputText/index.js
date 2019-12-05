@@ -51,7 +51,7 @@ InputText.propTypes = {
   isRequired: PropTypes.bool.isRequired,
   autoComplete: PropTypes.bool,
   value: PropTypes.string,
-  error: PropTypes.bool,
+  error: PropTypes.string,
   type: PropTypes.string,
 }
 
