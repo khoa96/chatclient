@@ -7,7 +7,7 @@ import RegisterPage from 'containers/RegisterPage/loadable';
 import PageNotFound from 'containers/PageNotFound/loadable';
 import GlobalStyle from '../../global-styles';
 
-export default function App() {
+function App() {
   return (
     <div>
       <Switch>
@@ -21,3 +21,4 @@ export default function App() {
     </div>
   );
 }
+export default App;
