@@ -11,12 +11,19 @@ import Alert from 'components/commons/Alert';
 import InputText from 'components/commons/InputText';
 import InputCheckbox from 'components/commons/InputCheckbox';
 import Button from 'components/commons/Button';
+import Spinner from 'components/commons/Spinner';
 import InputPassword from 'components/commons/InputPassword';
-import FlashMessage from 'containers/App/flashMessage';
+import NotificationList from 'containers/App/components/NotificationList';
 import FacebookIcon from 'images/icons/facebook.svg';
 import GoogleIcon from 'images/icons/google.svg';
 import GithubhIcon from 'images/icons/github.svg';
-import { getUserRegisterSelector, getErrorSelector } from './selectors';
+import { addNotification } from 'containers/App/actions';
+import uuid from 'uuid';
+import {
+  getUserRegisterSelector,
+  getErrorSelector,
+  getIsLoadingSelector,
+} from './selectors';
 import { handleChangeUser, handleSubmitRegisterUser } from './actions';
 import {
   RegisterPageWrapper,
@@ -33,6 +40,8 @@ function RegisterPreviewPage({
   dispatchHandleChangeUser,
   dispatchHandleSubmitRegisterUser,
   error,
+  dispatchAddNotification,
+  isLoading,
 }) {
   const { username, email, password } = user;
   const usernameError = _get(error, 'username', '');
@@ -52,19 +61,27 @@ function RegisterPreviewPage({
     if (username && email && password) return false;
     return true;
   };
-
   const renderListError = () => {
     if (!_isEmpty(error)) {
-      return Object.keys(error).map((item, index) => (
-        <Alert type="danger" message={error[item]} key={`${item}-${index}`} />
+      return Object.keys(error).map(item => (
+        <Alert type="danger" message={error[item]} key={item} />
       ));
     }
     return null;
   };
 
+  const handleTest = () => {
+    dispatchAddNotification({
+      id: uuid(),
+      title: 'Nguyen Dang Khoa',
+      content: 'Hoc vien cong nghe buu chinh vien thong',
+    });
+  };
+
   return (
     <RegisterPageWrapper>
-      <FlashMessage />
+      {isLoading && <Spinner />}
+      <NotificationList />
       <RegisterFormWrapper>
         <RegisterForm>
           <div className="notification-box">{renderListError()}</div>
@@ -122,6 +139,7 @@ function RegisterPreviewPage({
                   context="circle"
                   type="facebook"
                   className="btn-contact"
+                  onClick={handleTest}
                 >
                   <img src={FacebookIcon} alt="facebook" />
                 </Button>
@@ -151,6 +169,7 @@ function RegisterPreviewPage({
 }
 
 const mapStateToProps = createStructuredSelector({
+  isLoading: getIsLoadingSelector(),
   user: getUserRegisterSelector(),
   error: getErrorSelector(),
 });
@@ -159,6 +178,7 @@ const mapDispatchToProps = dispatch => ({
   dispatchHandleChangeUser: data => dispatch(handleChangeUser(data)),
   dispatchHandleSubmitRegisterUser: data =>
     dispatch(handleSubmitRegisterUser(data)),
+  dispatchAddNotification: data => dispatch(addNotification(data)),
 });
 
 const withConnect = connect(
@@ -172,10 +192,13 @@ RegisterPreviewPage.propTypes = {
   dispatchHandleChangeUser: PropTypes.func,
   dispatchHandleSubmitRegisterUser: PropTypes.func,
   error: PropTypes.object,
+  dispatchAddNotification: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
 };
 
 RegisterPreviewPage.defaultProps = {
   user: {},
+  isLoading: false,
 };
 
 export default compose(

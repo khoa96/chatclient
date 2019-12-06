@@ -36,6 +36,7 @@ const theme = {
   // blue
   bluePrimary: '#4179c3',
   blueMedium1: '#45dcc7',
+  blueMedium2: '#bee5eb',
 
   // dark
   darkPrimary: '#404040',
