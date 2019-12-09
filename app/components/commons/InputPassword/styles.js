@@ -3,6 +3,13 @@ import styled from 'styled-components';
 export const InputPasswordWrapper = styled.div`
   width: 100%;
   margin-top: -5px;
+  position: relative;
+  .forgot-password {
+    color: red;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 `;
 
 export const StatusPasswordWrapper = styled.div`

@@ -90,3 +90,9 @@ export const IntroduceWrapper = styled.div`
     margin-top: 20px;
   }
 `;
+
+export const ForgotPasswordWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px 5px 0px;
+`;

@@ -21,3 +21,9 @@ export const getErrorSelector = () =>
     registerDomainSelector,
     state => state.error,
   );
+
+export const getMessageSuccess = () =>
+  createSelector(
+    registerDomainSelector,
+    state => state.messageSuccess,
+  );

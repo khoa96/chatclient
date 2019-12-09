@@ -10,6 +10,7 @@ import {
 
 export const initialState = {
   isLoading: false,
+  messageSuccess: '',
   user: {
     username: '',
     email: '',
@@ -24,9 +25,11 @@ const registerReducer = (state = initialState, action) =>
       case HANDLE_SUBMIT_REGISTER_USER:
         draff.isLoading = true;
         draff.error = {};
+        draff.messageSuccess = '';
         break;
       case HANDLE_SUBMIT_REGISTER_USER_SUCCESS:
         draff.isLoading = false;
+        draff.messageSuccess = action.payload;
         draff.error = {};
         break;
       case HANDLE_CHANGE_USER:
@@ -38,6 +41,7 @@ const registerReducer = (state = initialState, action) =>
       case HANDLE_SUBMIT_REGISTER_USER_FAILURE:
         draff.isLoading = false;
         draff.error = action.payload;
+        draff.messageSuccess = '';
         break;
       case HANDLE_RESET_FORM:
         draff.user = {

@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import Alert from 'components/commons/Alert';
 import InputText from 'components/commons/InputText';
-import InputCheckbox from 'components/commons/InputCheckbox';
 import Button from 'components/commons/Button';
 import Spinner from 'components/commons/Spinner';
 import InputPassword from 'components/commons/InputPassword';
@@ -23,6 +22,7 @@ import {
   getUserRegisterSelector,
   getErrorSelector,
   getIsLoadingSelector,
+  getMessageSuccess,
 } from './selectors';
 import { handleChangeUser, handleSubmitRegisterUser } from './actions';
 import {
@@ -42,6 +42,7 @@ function RegisterPreviewPage({
   error,
   dispatchAddNotification,
   isLoading,
+  messageSuccess,
 }) {
   const { username, email, password } = user;
   const usernameError = _get(error, 'username', '');
@@ -84,7 +85,13 @@ function RegisterPreviewPage({
       <NotificationList />
       <RegisterFormWrapper>
         <RegisterForm>
-          <div className="notification-box">{renderListError()}</div>
+          <div className="notification-box">
+            {messageSuccess ? (
+              <Alert type="success" message={messageSuccess} />
+            ) : (
+              renderListError()
+            )}
+          </div>
           <div className="login-form-header">
             <span>{t('signup.signupTitle')}</span>
           </div>
@@ -122,7 +129,6 @@ function RegisterPreviewPage({
               value={password}
               error={passwordError}
             />
-            <InputCheckbox text={t('commons.remember')} name="remember" />
             <Button
               context="primary"
               onClick={onSubmitRegister}
@@ -172,6 +178,7 @@ const mapStateToProps = createStructuredSelector({
   isLoading: getIsLoadingSelector(),
   user: getUserRegisterSelector(),
   error: getErrorSelector(),
+  messageSuccess: getMessageSuccess(),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -194,6 +201,7 @@ RegisterPreviewPage.propTypes = {
   error: PropTypes.object,
   dispatchAddNotification: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
+  messageSuccess: PropTypes.string,
 };
 
 RegisterPreviewPage.defaultProps = {

@@ -1,13 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { useInjectReducer } from 'utils/injectReducer';
+import { useInjectSaga } from 'utils/injectSaga';
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import Alert from 'components/commons/Alert';
 import InputText from 'components/commons/InputText';
+import InputCheckbox from 'components/commons/InputCheckbox';
+import InputPassword from 'components/commons/InputPassword';
 import Button from 'components/commons/Button';
 import FacebookIcon from 'images/icons/facebook.svg';
 import GoogleIcon from 'images/icons/google.svg';
 import GithubhIcon from 'images/icons/github.svg';
+import {
+  getErrorSelector,
+  getIsLoadingSelector,
+  getUserSelector,
+} from './selectors';
+import { handleInputChange, handleSubmitLogin } from './actions';
+import { CONTEXT } from './constanst';
+import reducer from './reducers';
+import saga from './saga';
 import {
   LoginPageWrapper,
   LoginFormWrapper,
@@ -15,9 +31,33 @@ import {
   LoginForm,
   FormBodyWrapper,
   ListContactWrapper,
+  ForgotPasswordWrapper,
 } from './styles';
 
-function LoginPreviewPage({ t }) {
+function LoginPreviewPage({
+  t,
+  user,
+  dispatchHandleInputChange,
+  dispatchHandleSubmitLogin,
+}) {
+  useInjectReducer({ key: CONTEXT, reducer });
+  useInjectSaga({ key: CONTEXT, saga });
+  const { email, password } = user;
+
+  const onHandleChange = event => {
+    const { name, value } = event.target;
+    dispatchHandleInputChange({ [name]: value });
+  };
+
+  const handleCheckDisableButton = () => {
+    if (!email || !password) return true;
+    return false;
+  };
+
+  const onSubmitLogin = () => {
+    dispatchHandleSubmitLogin(user);
+  };
+
   return (
     <LoginPageWrapper>
       <LoginFormWrapper>
@@ -30,21 +70,38 @@ function LoginPreviewPage({ t }) {
           </div>
           <FormBodyWrapper>
             <InputText
+              type="text"
               placeholder="signin.emailPlaceholder"
               name="email"
               iconClassName="ion-md-mail"
               isShowIcon
               isRequired
+              value={email}
+              onChange={onHandleChange}
             />
-            <InputText
-              placeholder="signin.passwordPlaceholder"
+            <InputPassword
+              placeholder="signup.passwordPlaceholder"
               name="password"
+              type="password"
               iconClassName="ion-md-lock"
               isShowIcon
               isRequired
-              error
+              value={password}
+              onChange={onHandleChange}
             />
-            <Button context="primary">{t('signin.signInTitle')}</Button>
+            <InputCheckbox text={t('commons.remember')} name="remember" />
+            <Button
+              context="primary"
+              disabled={handleCheckDisableButton()}
+              onClick={onSubmitLogin}
+            >
+              {t('signin.signInTitle')}
+            </Button>
+            <ForgotPasswordWrapper>
+              <Link to="/forgot-password">
+                <Button context="link">{t('signin.forgotPassword')}</Button>
+              </Link>
+            </ForgotPasswordWrapper>
             <ListContactWrapper>
               <span className="title-list-contact">
                 {t('signup.titleListContact')}
@@ -84,6 +141,28 @@ function LoginPreviewPage({ t }) {
 
 LoginPreviewPage.propTypes = {
   t: PropTypes.func.isRequired,
+  user: PropTypes.object,
+  dispatchHandleInputChange: PropTypes.func.isRequired,
+  dispatchHandleSubmitLogin: PropTypes.func.isRequired,
 };
 
-export default withTranslation()(LoginPreviewPage);
+const mapStateToProps = createStructuredSelector({
+  user: getUserSelector(),
+  isLoading: getIsLoadingSelector(),
+  error: getErrorSelector(),
+});
+
+const mapDispatchToProps = dispatch => ({
+  dispatchHandleInputChange: data => dispatch(handleInputChange(data)),
+  dispatchHandleSubmitLogin: data => dispatch(handleSubmitLogin(data)),
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default compose(
+  withTranslation(),
+  withConnect,
+)(LoginPreviewPage);
