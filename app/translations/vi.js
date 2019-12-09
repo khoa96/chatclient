@@ -19,6 +19,7 @@ export default {
     emailPlaceholder: 'Địa chỉ email',
     signInTitle: 'Đăng Nhập',
     clickHere: 'Đằng kí tài khoản',
+    forgotPassword: 'Quên mật khẩu của bạn',
   },
   signup: {
     signupTitle: 'Đăng Kí',

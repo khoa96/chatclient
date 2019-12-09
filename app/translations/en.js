@@ -19,6 +19,7 @@ export default {
     emailPlaceholder: 'Email address',
     signInTitle: 'Sign In',
     clickHere: 'Create account',
+    forgotPassword: 'Forgot you password',
   },
   signup: {
     signupTitle: 'Sign Up',

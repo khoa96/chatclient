@@ -6,4 +6,11 @@ export default {
       data: payload,
     });
   },
+
+  handleSubmitLoginAPI(user) {
+    return request.post({
+      url: '/login',
+      data: user,
+    });
+  },
 };
