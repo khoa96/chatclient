@@ -1,6 +1,12 @@
-import { takeLatest, all, call, put } from 'redux-saga/effects';
+import { takeLatest, all, call, put, delay } from 'redux-saga/effects';
 import userAPI from 'services';
 import { VALIDATE_STATUS_CODE, SUCCESS_STATUS_CODE } from 'utils/constants';
+import { push } from 'connected-react-router';
+import { addNotification } from 'containers/App/actions';
+import { handleSetDefaultValue } from 'containers/LoginPage/actions';
+import uuid from 'uuid';
+import i18n from 'i18next';
+import routers from 'utils/routers';
 import { HANDLE_SUBMIT_REGISTER_USER } from './constanst';
 import {
   handleSubmitRegisterUserSuccess,
@@ -15,16 +21,24 @@ function* handleSubmitRegisterUserProcess({ payload }) {
       status,
       data: { data },
     } = result;
-    console.log(result);
     if (status === SUCCESS_STATUS_CODE) {
       yield put(handleSubmitRegisterUserSuccess(data));
       yield put(handleResetForm());
+      yield put(handleSetDefaultValue(data));
+      yield put(
+        addNotification({
+          id: uuid(),
+          title: i18n.t('commons.titleNotification'),
+          content: i18n.t('signup.singupSuccessMessage'),
+        }),
+      );
+      yield delay(2000);
+      yield put(push(routers.login));
     }
     if (status === VALIDATE_STATUS_CODE) {
       yield put(handleSubmitRegisterUserFailure(data));
     }
   } catch (error) {
-    // handle error
     yield put(handleSubmitRegisterUserFailure(error));
   }
 }

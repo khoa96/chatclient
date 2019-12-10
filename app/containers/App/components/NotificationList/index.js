@@ -7,7 +7,7 @@ import { useInjectReducer } from 'utils/injectReducer';
 import { CONTEXT } from 'containers/App/constants';
 import reducer from 'containers/App/reducers';
 import FlashMessage from 'components/commons/flashMessage';
-import { getNotificationList } from 'containers/App/selectors';
+import { getNotificationListSelector } from 'containers/App/selectors';
 import { deleteNotification } from 'containers/App/actions';
 import { NotificationListWrapper } from './style';
 
@@ -38,7 +38,7 @@ function NotificationList({ notificationList, dispatchDeleteNotification }) {
 }
 
 const mapStateToProps = createStructuredSelector({
-  notificationList: getNotificationList(),
+  notificationList: getNotificationListSelector(),
 });
 
 const mapDispatchToProps = dispatch => ({

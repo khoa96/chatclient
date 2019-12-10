@@ -74,8 +74,8 @@ function RegisterPreviewPage({
   const handleTest = () => {
     dispatchAddNotification({
       id: uuid(),
-      title: 'Nguyen Dang Khoa',
-      content: 'Hoc vien cong nghe buu chinh vien thong',
+      title: 'title message',
+      content: 'description message',
     });
   };
 

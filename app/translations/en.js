@@ -3,6 +3,7 @@ export default {
     showPassword: 'Show password',
     hidenPassword: 'Hide password',
     remember: 'Save login status.',
+    titleNotification: 'Notifications from NDK chat system',
   },
   home: {
     hello: 'wellcome to reactjs',
@@ -20,6 +21,8 @@ export default {
     signInTitle: 'Sign In',
     clickHere: 'Create account',
     forgotPassword: 'Forgot you password',
+    titleNotification: 'Notifications from NDK chat system',
+    singinSuccessMessage: 'Login account successfully',
   },
   signup: {
     signupTitle: 'Sign Up',
@@ -32,6 +35,7 @@ export default {
     introduce:
       'Talkshak is a simplest and friendly interface Messagner or plateform',
     action: 'Login Now And Enjoy!',
+    singupSuccessMessage: 'Register an account successfully',
   },
 
   homeChat: {

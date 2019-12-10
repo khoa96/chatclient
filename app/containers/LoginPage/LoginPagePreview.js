@@ -5,9 +5,12 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
+import _isEmpty from 'lodash/isEmpty';
+import _get from 'lodash/get';
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import Alert from 'components/commons/Alert';
+import Spinner from 'components/commons/Spinner';
 import InputText from 'components/commons/InputText';
 import InputCheckbox from 'components/commons/InputCheckbox';
 import InputPassword from 'components/commons/InputPassword';
@@ -15,12 +18,19 @@ import Button from 'components/commons/Button';
 import FacebookIcon from 'images/icons/facebook.svg';
 import GoogleIcon from 'images/icons/google.svg';
 import GithubhIcon from 'images/icons/github.svg';
+import NotificationList from 'containers/App/components/NotificationList';
+import { addNotification } from 'containers/App/actions';
+import uuid from 'uuid';
 import {
   getErrorSelector,
   getIsLoadingSelector,
   getUserSelector,
 } from './selectors';
-import { handleInputChange, handleSubmitLogin } from './actions';
+import {
+  handleInputChange,
+  handleSubmitLogin,
+  handleChangeRemember,
+} from './actions';
 import { CONTEXT } from './constanst';
 import reducer from './reducers';
 import saga from './saga';
@@ -39,14 +49,26 @@ function LoginPreviewPage({
   user,
   dispatchHandleInputChange,
   dispatchHandleSubmitLogin,
+  errors,
+  dispatchAddNotification,
+  isLoading,
+  dispatchHandleChangeRemember,
 }) {
   useInjectReducer({ key: CONTEXT, reducer });
   useInjectSaga({ key: CONTEXT, saga });
+
   const { email, password } = user;
+  const emailError = _get(errors, 'email', '');
+  const passwordError = _get(errors, 'password', '');
 
   const onHandleChange = event => {
     const { name, value } = event.target;
     dispatchHandleInputChange({ [name]: value });
+  };
+
+  const onHandleCheckboxChange = event => {
+    const { checked } = event.target;
+    dispatchHandleChangeRemember(checked);
   };
 
   const handleCheckDisableButton = () => {
@@ -58,13 +80,30 @@ function LoginPreviewPage({
     dispatchHandleSubmitLogin(user);
   };
 
+  const onHandleTestAddNotification = () => {
+    dispatchAddNotification({
+      id: uuid(),
+      title: 'Title Message',
+      content: 'description message',
+    });
+  };
+
+  const renderErrorList = () => {
+    if (!_isEmpty(errors)) {
+      return Object.keys(errors).map(item => (
+        <Alert type="danger" message={errors[item]} key={item} />
+      ));
+    }
+    return null;
+  };
+
   return (
     <LoginPageWrapper>
+      {isLoading && <Spinner />}
+      <NotificationList />
       <LoginFormWrapper>
         <LoginForm>
-          <div className="notification-box">
-            <Alert type="success" message="home.alertSuccess" />
-          </div>
+          <div className="notification-box">{renderErrorList()}</div>
           <div className="login-form-header">
             <span>{t('signin.signInTitle')}</span>
           </div>
@@ -78,6 +117,7 @@ function LoginPreviewPage({
               isRequired
               value={email}
               onChange={onHandleChange}
+              error={emailError}
             />
             <InputPassword
               placeholder="signup.passwordPlaceholder"
@@ -88,8 +128,13 @@ function LoginPreviewPage({
               isRequired
               value={password}
               onChange={onHandleChange}
+              error={passwordError}
             />
-            <InputCheckbox text={t('commons.remember')} name="remember" />
+            <InputCheckbox
+              text={t('commons.remember')}
+              name="remember"
+              onChange={onHandleCheckboxChange}
+            />
             <Button
               context="primary"
               disabled={handleCheckDisableButton()}
@@ -111,6 +156,7 @@ function LoginPreviewPage({
                   context="circle"
                   type="facebook"
                   className="btn-contact"
+                  onClick={onHandleTestAddNotification}
                 >
                   <img src={FacebookIcon} alt="facebook" />
                 </Button>
@@ -144,17 +190,23 @@ LoginPreviewPage.propTypes = {
   user: PropTypes.object,
   dispatchHandleInputChange: PropTypes.func.isRequired,
   dispatchHandleSubmitLogin: PropTypes.func.isRequired,
+  errors: PropTypes.object,
+  dispatchAddNotification: PropTypes.func,
+  isLoading: PropTypes.bool,
+  dispatchHandleChangeRemember: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   user: getUserSelector(),
   isLoading: getIsLoadingSelector(),
-  error: getErrorSelector(),
+  errors: getErrorSelector(),
 });
 
 const mapDispatchToProps = dispatch => ({
   dispatchHandleInputChange: data => dispatch(handleInputChange(data)),
   dispatchHandleSubmitLogin: data => dispatch(handleSubmitLogin(data)),
+  dispatchAddNotification: data => dispatch(addNotification(data)),
+  dispatchHandleChangeRemember: data => dispatch(handleChangeRemember(data)),
 });
 
 const withConnect = connect(
