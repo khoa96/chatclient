@@ -11,7 +11,7 @@ export const makeSelectLocation = () =>
     routerState => routerState.location,
   );
 
-export const getNotificationList = () =>
+export const getNotificationListSelector = () =>
   createSelector(
     appDomainSelector,
     state => state.notificationList,

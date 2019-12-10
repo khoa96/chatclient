@@ -1,16 +1,44 @@
-import { takeLatest, all, call, put } from 'redux-saga/effects';
+import { takeLatest, all, call, put, delay } from 'redux-saga/effects';
 import userAPI from 'services';
 import { VALIDATE_STATUS_CODE, SUCCESS_STATUS_CODE } from 'utils/constants';
+import { setAccessToken } from 'utils/sessionStorage';
+import { addNotification } from 'containers/App/actions';
+import uuid from 'uuid';
+import i18n from 'i18next';
+import routers from 'utils/routers';
+import { push } from 'connected-react-router';
 import { HANDLE_SUBMIT_LOGIN } from './constanst';
-import { handleSubmitLoginSuccess, handleSubmitLoginFailure } from './actions';
+import {
+  handleSubmitLoginSuccess,
+  handleSubmitLoginFailure,
+  handleResetLoginForm,
+} from './actions';
 
 function* handleSubmitLoginProcess({ payload }) {
-  console.log(payload);
   try {
     const result = yield call(userAPI.handleSubmitLoginAPI, payload);
-    console.log(result);
+    const {
+      status,
+      data: { data },
+    } = result;
+    if (status === SUCCESS_STATUS_CODE) {
+      yield put(handleSubmitLoginSuccess(data));
+      setAccessToken(data);
+      yield put(handleResetLoginForm());
+      yield put(
+        addNotification({
+          id: uuid(),
+          title: i18n.t('commons.titleNotification'),
+          content: i18n.t('signin.singinSuccessMessage'),
+        }),
+      );
+      yield delay(2000);
+      yield put(push(routers.homeChat));
+    }
+    if (status === VALIDATE_STATUS_CODE) {
+      yield put(handleSubmitLoginFailure(data));
+    }
   } catch (error) {
-    // handle error
     yield put(handleSubmitLoginFailure(error));
   }
 }

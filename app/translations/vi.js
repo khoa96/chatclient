@@ -3,6 +3,7 @@ export default {
     showPassword: 'Hiển thị mật khẩu',
     hidenPassword: 'Ẩn mật khẩu',
     remember: 'Lưu trạng thái đăng nhập',
+    titleNotification: 'Thông báo từ hệ thống NDK chat',
   },
   home: {
     hello: 'chao mung ban den voi reactjs',
@@ -20,6 +21,7 @@ export default {
     signInTitle: 'Đăng Nhập',
     clickHere: 'Đằng kí tài khoản',
     forgotPassword: 'Quên mật khẩu của bạn',
+    singinSuccessMessage: 'Đăng nhập tài khoản thành công',
   },
   signup: {
     signupTitle: 'Đăng Kí',
@@ -32,6 +34,7 @@ export default {
     introduce:
       'Talkshak is a simplest and friendly interface Messagner or plateform',
     action: 'Login Now And Enjoy!',
+    singupSuccessMessage: 'Đăng kí tài khoản thành công',
   },
   homeChat: {
     inputSearchPlaceholder: 'Tìm kiếm cho cuộc trò chuyện...',

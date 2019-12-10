@@ -21,3 +21,9 @@ export const getErrorSelector = () =>
     loginDomainSelector,
     state => state.error,
   );
+
+export const getRememberSelector = () =>
+  createSelector(
+    loginDomainSelector,
+    state => state.remember,
+  );
