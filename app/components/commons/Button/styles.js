@@ -11,7 +11,7 @@ const buttonLink = color => `
   border: none;
   padding: 0;
   color: ${color} !important;
-  background: white;
+  background: none;
 `;
 
 const renderBackgroundColorCircleButton = props => {

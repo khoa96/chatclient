@@ -3,6 +3,7 @@ const routers = {
   register: '/register',
   homeChat: '/',
   forgotPassword: '/forgot-password',
+  confirmResetPassword: '/forgot-password/confirm',
 };
 
 export default routers;

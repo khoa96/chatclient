@@ -13,4 +13,11 @@ export default {
       data: user,
     });
   },
+
+  handleSubmitChangePasswordAPI(email) {
+    return request.post({
+      url: '/forgot-password',
+      data: { email },
+    });
+  },
 };
