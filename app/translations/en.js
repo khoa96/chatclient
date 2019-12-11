@@ -41,4 +41,15 @@ export default {
   homeChat: {
     inputSearchPlaceholder: 'Search for conversations...',
   },
+  forgotPassword: {
+    titleForgotPassword: 'Forgot Password',
+    resetPasswordLabelButton: 'Reset Password',
+    beforeDescription:
+      'When you enter your registered email address, you will receive a new password.',
+    goBackToLoginLable: 'Back to login page',
+    afterDescription:
+      'The password has been changed again, please check your email to retrieve your password, thanks!',
+    goToLogin: 'Go To Login',
+    checkEmail: 'Check Your Email',
+  },
 };

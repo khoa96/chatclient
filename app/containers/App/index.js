@@ -8,6 +8,7 @@ import RegisterPage from 'containers/RegisterPage/loadable';
 import PageNotFound from 'containers/PageNotFound/loadable';
 import PrivateRouter from 'routers/PrivateRouter';
 import ForgotPassword from 'containers/ForgotPassword/loadable';
+import ConfirmResetPassword from 'containers/ForgotPassword/components/confirmResetPage';
 import GlobalStyle from '../../global-styles';
 
 function App() {
@@ -16,6 +17,11 @@ function App() {
       <Switch>
         <PrivateRouter exact path={routers.homeChat} component={HomePage} />
         <Route exact path={routers.forgotPassword} component={ForgotPassword} />
+        <Route
+          exact
+          path={routers.confirmResetPassword}
+          component={ConfirmResetPassword}
+        />
         <Route exact path="/multi" component={MultiLanguage} />
         <Route exact path={routers.login} component={LoginPage} />
         <Route exact path={routers.register} component={RegisterPage} />

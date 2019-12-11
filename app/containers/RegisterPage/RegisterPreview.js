@@ -18,6 +18,7 @@ import GoogleIcon from 'images/icons/google.svg';
 import GithubhIcon from 'images/icons/github.svg';
 import { addNotification } from 'containers/App/actions';
 import uuid from 'uuid';
+import routers from 'utils/routers';
 import {
   getUserRegisterSelector,
   getErrorSelector,
@@ -159,7 +160,7 @@ function RegisterPreviewPage({
             </ListContactWrapper>
             <p className="confirm">
               <span>{t('signup.confirmSignUp')}</span>
-              <Link to="/login">
+              <Link to={routers.login}>
                 <Button context="link">{t('signup.clickHere')}</Button>
               </Link>
             </p>

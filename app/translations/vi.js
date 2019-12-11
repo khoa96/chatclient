@@ -39,4 +39,15 @@ export default {
   homeChat: {
     inputSearchPlaceholder: 'Tìm kiếm cho cuộc trò chuyện...',
   },
+  forgotPassword: {
+    titleForgotPassword: 'Quên Mật Khẩu',
+    resetPasswordLabelButton: 'Đặt lại mật khẩu',
+    beforeDescription:
+      'Khi bạn điền địa chỉ email đã đăng ký, bạn sẽ nhận được một mật khẩu mới.',
+    goBackToLoginLable: 'Quay lại trang đăng nhập',
+    afterDescription:
+      'mật khẩu đã được thay đổi lại, bạn vui lòng kiểm tra lại hòm thư điện tử cuả mình để lấy lại mật khẩu, cảm ơn!',
+    goToLogin: 'Đi đến đăng nhập',
+    checkEmail: 'Kiểm Tra Email',
+  },
 };

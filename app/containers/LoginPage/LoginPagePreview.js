@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -21,6 +21,7 @@ import GithubhIcon from 'images/icons/github.svg';
 import NotificationList from 'containers/App/components/NotificationList';
 import { addNotification } from 'containers/App/actions';
 import uuid from 'uuid';
+import routers from 'utils/routers';
 import {
   getErrorSelector,
   getIsLoadingSelector,
@@ -30,6 +31,7 @@ import {
   handleInputChange,
   handleSubmitLogin,
   handleChangeRemember,
+  handleResetLoginForm,
 } from './actions';
 import { CONTEXT } from './constanst';
 import reducer from './reducers';
@@ -53,9 +55,17 @@ function LoginPreviewPage({
   dispatchAddNotification,
   isLoading,
   dispatchHandleChangeRemember,
+  dispatchHandleResetLoginForm,
 }) {
   useInjectReducer({ key: CONTEXT, reducer });
   useInjectSaga({ key: CONTEXT, saga });
+
+  useEffect(
+    () => () => {
+      dispatchHandleResetLoginForm();
+    },
+    [],
+  );
 
   const { email, password } = user;
   const emailError = _get(errors, 'email', '');
@@ -170,7 +180,7 @@ function LoginPreviewPage({
             </ListContactWrapper>
             <p className="confirm">
               <span>{t('signup.confirmSignUp')}</span>
-              <Link to="/register">
+              <Link to={routers.register}>
                 <Button context="link">{t('signin.clickHere')}</Button>
               </Link>
             </p>
@@ -185,17 +195,6 @@ function LoginPreviewPage({
   );
 }
 
-LoginPreviewPage.propTypes = {
-  t: PropTypes.func.isRequired,
-  user: PropTypes.object,
-  dispatchHandleInputChange: PropTypes.func.isRequired,
-  dispatchHandleSubmitLogin: PropTypes.func.isRequired,
-  errors: PropTypes.object,
-  dispatchAddNotification: PropTypes.func,
-  isLoading: PropTypes.bool,
-  dispatchHandleChangeRemember: PropTypes.func.isRequired,
-};
-
 const mapStateToProps = createStructuredSelector({
   user: getUserSelector(),
   isLoading: getIsLoadingSelector(),
@@ -207,6 +206,7 @@ const mapDispatchToProps = dispatch => ({
   dispatchHandleSubmitLogin: data => dispatch(handleSubmitLogin(data)),
   dispatchAddNotification: data => dispatch(addNotification(data)),
   dispatchHandleChangeRemember: data => dispatch(handleChangeRemember(data)),
+  dispatchHandleResetLoginForm: () => dispatch(handleResetLoginForm()),
 });
 
 const withConnect = connect(
@@ -214,6 +214,17 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
+LoginPreviewPage.propTypes = {
+  t: PropTypes.func.isRequired,
+  user: PropTypes.object,
+  dispatchHandleInputChange: PropTypes.func.isRequired,
+  dispatchHandleSubmitLogin: PropTypes.func.isRequired,
+  errors: PropTypes.object,
+  dispatchAddNotification: PropTypes.func,
+  isLoading: PropTypes.bool,
+  dispatchHandleChangeRemember: PropTypes.func.isRequired,
+  dispatchHandleResetLoginForm: PropTypes.func,
+};
 export default compose(
   withTranslation(),
   withConnect,
