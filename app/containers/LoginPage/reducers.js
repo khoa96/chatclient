@@ -51,7 +51,7 @@ const loginReducer = (state = initialState, action) =>
         break;
       case HANDLE_RESET_LOGIN_FORM:
         draff.user = {
-          emai: '',
+          email: '',
           password: '',
         };
         draff.error = {};

@@ -33,6 +33,8 @@ const theme = {
   grayPrimary6: '#ced4da',
   grayPrimary7: '#D1D8D9',
   grayPrimary8: '#666666',
+  grayPrimary9: '#f4f8ff',
+  grayPrimary10: '#fdfdfd',
 
   // blue
   bluePrimary: '#4179c3',
