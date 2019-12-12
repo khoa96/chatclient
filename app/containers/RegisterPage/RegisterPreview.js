@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import _isEmpty from 'lodash/isEmpty';
 import _get from 'lodash/get';
@@ -25,7 +25,11 @@ import {
   getIsLoadingSelector,
   getMessageSuccess,
 } from './selectors';
-import { handleChangeUser, handleSubmitRegisterUser } from './actions';
+import {
+  handleChangeUser,
+  handleSubmitRegisterUser,
+  handleResetForm,
+} from './actions';
 import {
   RegisterPageWrapper,
   RegisterFormWrapper,
@@ -44,7 +48,9 @@ function RegisterPreviewPage({
   dispatchAddNotification,
   isLoading,
   messageSuccess,
+  dispatchHandleResetRegisterForm,
 }) {
+  useEffect(() => () => dispatchHandleResetRegisterForm(), []);
   const { username, email, password } = user;
   const usernameError = _get(error, 'username', '');
   const passwordError = _get(error, 'password', '');
@@ -187,6 +193,7 @@ const mapDispatchToProps = dispatch => ({
   dispatchHandleSubmitRegisterUser: data =>
     dispatch(handleSubmitRegisterUser(data)),
   dispatchAddNotification: data => dispatch(addNotification(data)),
+  dispatchHandleResetRegisterForm: () => dispatch(handleResetForm()),
 });
 
 const withConnect = connect(
@@ -203,6 +210,7 @@ RegisterPreviewPage.propTypes = {
   dispatchAddNotification: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
   messageSuccess: PropTypes.string,
+  dispatchHandleResetRegisterForm: PropTypes.func,
 };
 
 RegisterPreviewPage.defaultProps = {

@@ -23,7 +23,6 @@ function* handleSubmitRegisterUserProcess({ payload }) {
     } = result;
     if (status === SUCCESS_STATUS_CODE) {
       yield put(handleSubmitRegisterUserSuccess(data));
-      yield put(handleResetForm());
       yield put(handleSetDefaultValue(data));
       yield put(
         addNotification({
@@ -33,6 +32,7 @@ function* handleSubmitRegisterUserProcess({ payload }) {
         }),
       );
       yield delay(2000);
+      yield put(handleResetForm());
       yield put(push(routers.login));
     }
     if (status === VALIDATE_STATUS_CODE) {

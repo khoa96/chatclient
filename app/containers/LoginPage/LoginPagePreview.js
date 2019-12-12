@@ -46,7 +46,7 @@ import {
   ForgotPasswordWrapper,
 } from './styles';
 
-function LoginPreviewPage({
+const LoginPreviewPage = ({
   t,
   user,
   dispatchHandleInputChange,
@@ -56,16 +56,10 @@ function LoginPreviewPage({
   isLoading,
   dispatchHandleChangeRemember,
   dispatchHandleResetLoginForm,
-}) {
+}) => {
   useInjectReducer({ key: CONTEXT, reducer });
   useInjectSaga({ key: CONTEXT, saga });
-
-  useEffect(
-    () => () => {
-      dispatchHandleResetLoginForm();
-    },
-    [],
-  );
+  useEffect(() => () => dispatchHandleResetLoginForm(), []);
 
   const { email, password } = user;
   const emailError = _get(errors, 'email', '');
@@ -106,7 +100,6 @@ function LoginPreviewPage({
     }
     return null;
   };
-
   return (
     <LoginPageWrapper>
       {isLoading && <Spinner />}
@@ -193,7 +186,7 @@ function LoginPreviewPage({
       </IntroduceWrapper>
     </LoginPageWrapper>
   );
-}
+};
 
 const mapStateToProps = createStructuredSelector({
   user: getUserSelector(),

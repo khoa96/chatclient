@@ -24,7 +24,6 @@ function* handleSubmitLoginProcess({ payload }) {
     if (status === SUCCESS_STATUS_CODE) {
       yield put(handleSubmitLoginSuccess(data));
       setAccessToken(data);
-      yield put(handleResetLoginForm());
       yield put(
         addNotification({
           id: uuid(),
@@ -34,6 +33,7 @@ function* handleSubmitLoginProcess({ payload }) {
       );
       yield delay(2000);
       yield put(push(routers.homeChat));
+      yield put(handleResetLoginForm());
     }
     if (status === VALIDATE_STATUS_CODE) {
       yield put(handleSubmitLoginFailure(data));
