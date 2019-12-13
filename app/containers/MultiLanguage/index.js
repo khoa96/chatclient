@@ -10,7 +10,10 @@ import GlobalModal from 'containers/GlobalModal';
 import FacebookIcon from 'images/icons/facebook.svg';
 import GoogleIcon from 'images/icons/google.svg';
 import GithubhIcon from 'images/icons/github.svg';
+import MessageHistory from 'containers/HomePage/components/MessageHistory';
 import { Wrapper } from './styles';
+
+
 function MultiLanguage() {
   const [toggleModal, setToggleModal] = useState(false);
   const handleShowModal = () => {
@@ -80,6 +83,8 @@ function MultiLanguage() {
          nguyen dang khoa hoc vien cong nghe buu chinh vien thong
         </GlobalModal>
       )}
+      <hr />
+      <MessageHistory />
     </Wrapper>
   );
 }

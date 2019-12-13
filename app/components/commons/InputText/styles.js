@@ -18,6 +18,7 @@ export const InputTextWrapper = styled.div`
       flex-shirk: 0;
       font-size: 20px;
       color: ${props => props.theme.grayPrimary2};
+      color: transparent
     }
 `;
 

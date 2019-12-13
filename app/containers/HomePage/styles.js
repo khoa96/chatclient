@@ -3,28 +3,26 @@ import styled from 'styled-components';
 export const MainLayoutWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  border: 1px solid;
   overflow: hidden;
   display: flex;
 `;
 
 export const NavigationWrapper = styled.div`
   min-width: 90px;
-  max-width: 95px;
+  max-width: 100px;
   height: 100%;
-  border: 1px solid green;
   background-color: ${props => props.theme.grayPrimary9};
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  padding: 0px 10px;
 `;
 
 export const SidebarWrapper = styled.div`
-  border: 1px solid red;
   width: 370px;
   flex-shrink: 0;
   height: 100%;
-  background-color: ${props => props.theme.grayPrimary10};
+  padding: 30px;
 `;
 
 export const MainChatWrapper = styled.div`
