@@ -38,6 +38,12 @@ export default {
   },
   homeChat: {
     inputSearchPlaceholder: 'Tìm kiếm cho cuộc trò chuyện...',
+    settingLabel: 'Cài Đặt',
+    friendLabel: 'Bạn Bè',
+    recentChatLabel: 'Tin Nhắn',
+    notificationLabel: 'Thông Báo',
+    nightModeLable: 'Chế Độ',
+    logoutLabel: 'Đăng Xuất',
   },
   forgotPassword: {
     titleForgotPassword: 'Quên Mật Khẩu',

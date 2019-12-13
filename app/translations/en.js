@@ -40,6 +40,12 @@ export default {
 
   homeChat: {
     inputSearchPlaceholder: 'Search for conversations...',
+    settingLabel: 'Settings',
+    friendLabel: 'All Friends',
+    recentChatLabel: 'Recent Chat',
+    notificationLabel: 'Notifications',
+    nightModeLable: 'Night Mode',
+    logoutLabel: 'Logout',
   },
   forgotPassword: {
     titleForgotPassword: 'Forgot Password',

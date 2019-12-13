@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import NavigationButton from './components/NavigationButton';
+import Img from 'images/icon-512x512.png';
+import MessageHistory from './components/MessageHistory';
+import Navigation from './navigation';
 import {
   MainLayoutWrapper,
   NavigationWrapper,
@@ -15,9 +16,49 @@ function MainLayoutPage() {
   return (
     <MainLayoutWrapper>
       <NavigationWrapper>
-        <NavigationButton />
+        <Navigation />
       </NavigationWrapper>
-      <SidebarWrapper>side bar warpper</SidebarWrapper>
+      <SidebarWrapper>
+        <MessageHistory
+          username="Dang Khoa"
+          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
+          time="5 mins"
+          isActice
+          image={Img}
+          isUserOnline
+        />
+        <MessageHistory
+          username="Trung Hieu"
+          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
+          time="5 mins"
+          image={Img}
+          isUserOnline={false}
+        />
+        <MessageHistory
+          username="Trung Hieu Nguyen Hoang Trung Hieu"
+          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
+          time="5 mins"
+          image={Img}
+          isUserOnline={false}
+          isActice
+        />
+        <MessageHistory
+          username="Trung Hieu Nguyen"
+          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
+          time="5 mins"
+          image={Img}
+          isUserOnline={false}
+          isActice={false}
+        />
+        <MessageHistory
+          username="Trung Hieu"
+          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
+          time="5 mins"
+          image={Img}
+          isUserOnline={false}
+          isActice={false}
+        />
+      </SidebarWrapper>
       <MainChatWrapper>
         <HeaderMainChatWrapper>header</HeaderMainChatWrapper>
         <BodyMainChatWrapper>body</BodyMainChatWrapper>

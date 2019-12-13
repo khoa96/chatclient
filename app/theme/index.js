@@ -15,6 +15,7 @@ const theme = {
   greenPrimary: '#1de9b6',
   greenPrimary2: '#155724',
   greenPrimary3: '#d4edda',
+  greenPrimary4: '#7fba00',
 
   // yellow
   yellowPrimary: '#856404',
@@ -35,14 +36,19 @@ const theme = {
   grayPrimary8: '#666666',
   grayPrimary9: '#f4f8ff',
   grayPrimary10: '#fdfdfd',
+  grayPrimary11: '#5c5c5c',
+  grayPrimary12: '#888888',
+  grayPrimary13: '#a9a9a9',
 
   // blue
   bluePrimary: '#4179c3',
   blueMedium1: '#45dcc7',
   blueMedium2: '#bee5eb',
+  blueMedium3: '#1dc4e9',
 
   // dark
   darkPrimary: '#404040',
+  darkMedium1: '#1a1a1a',
 };
 
 export default theme;
