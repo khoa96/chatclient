@@ -1,7 +1,6 @@
 import React from 'react';
-import Img from 'images/icon-512x512.png';
-import MessageHistory from './components/MessageHistory';
 import Navigation from './navigation';
+import Sidebar from './sidebar';
 import {
   MainLayoutWrapper,
   NavigationWrapper,
@@ -19,45 +18,7 @@ function MainLayoutPage() {
         <Navigation />
       </NavigationWrapper>
       <SidebarWrapper>
-        <MessageHistory
-          username="Dang Khoa"
-          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
-          time="5 mins"
-          isActice
-          image={Img}
-          isUserOnline
-        />
-        <MessageHistory
-          username="Trung Hieu"
-          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
-          time="5 mins"
-          image={Img}
-          isUserOnline={false}
-        />
-        <MessageHistory
-          username="Trung Hieu Nguyen Hoang Trung Hieu"
-          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
-          time="5 mins"
-          image={Img}
-          isUserOnline={false}
-          isActice
-        />
-        <MessageHistory
-          username="Trung Hieu Nguyen"
-          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
-          time="5 mins"
-          image={Img}
-          isUserOnline={false}
-          isActice={false}
-        />
-        <MessageHistory
-          username="Trung Hieu"
-          content="Nguyen Dang Khoa Hoc vien cong nghe buu chinh vien thong"
-          time="5 mins"
-          image={Img}
-          isUserOnline={false}
-          isActice={false}
-        />
+        <Sidebar />
       </SidebarWrapper>
       <MainChatWrapper>
         <HeaderMainChatWrapper>header</HeaderMainChatWrapper>

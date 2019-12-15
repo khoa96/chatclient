@@ -11,6 +11,7 @@ import FacebookIcon from 'images/icons/facebook.svg';
 import GoogleIcon from 'images/icons/google.svg';
 import GithubhIcon from 'images/icons/github.svg';
 import MessageHistory from 'containers/HomePage/components/MessageHistory';
+import DropdownButton from 'containers/HomePage/components/DropdownButton';
 import { Wrapper } from './styles';
 
 
@@ -85,6 +86,11 @@ function MultiLanguage() {
       )}
       <hr />
       <MessageHistory />
+      <hr />
+      <DropdownButton />
+      <br />
+      <br />
+      <br />
     </Wrapper>
   );
 }

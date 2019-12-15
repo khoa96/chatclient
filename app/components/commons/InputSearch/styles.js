@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const InputSearchWrapper = styled.div`
   border: 1px solid ${props => props.theme.grayPrimary4};
   border-radius: 8px;
-  padding: 10px 15px;
+  padding: 8px 12px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -11,7 +11,6 @@ export const InputSearchWrapper = styled.div`
   position: relative;
   justify-content: space-between;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-
   .btn-create {
     flex-shrink: 0;
     color: ${props => props.theme.grayPrimary5};
@@ -49,14 +48,15 @@ export const InputTextWrapper = styled.div`
     border: none;
     background-color: ${props => props.theme.grayPrimary3};
     flex-grow: 1;
-    font-size: 16px;
+    font-size: 14px;
     &:focus {
       outline: none;
     }
 
     &:placeholder {
-      font-size: 17px;
+      font-size: 15px;
       color: ${props => props.theme.grayPrimary6};
+      font-weight: bold;
     }
   }
 `;
