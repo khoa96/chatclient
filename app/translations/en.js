@@ -4,6 +4,10 @@ export default {
     hidenPassword: 'Hide password',
     remember: 'Save login status.',
     titleNotification: 'Notifications from NDK chat system',
+    addNewUserLabel: 'New User +',
+    addNewGroupLabel: 'New Group +',
+    addNewPrivateChatLabel: 'New Private Chat',
+    isOnlineNow: 'Is online now',
   },
   home: {
     hello: 'wellcome to reactjs',
@@ -46,6 +50,19 @@ export default {
     notificationLabel: 'Notifications',
     nightModeLable: 'Night Mode',
     logoutLabel: 'Logout',
+    friend: {
+      allButtonLabel: 'All',
+      onlineButtonLabel: 'Online',
+      offlineButtonLabel: 'Offline',
+      inputSearchPlaceholder: 'Search for people...',
+    },
+    recentChat: {
+      allButtonLabel: 'All',
+      favouritButtonLabel: 'Favourit',
+      unreadButtonLabel: 'Unread',
+      chatsTitlte: 'Chats',
+      inputSearchPlaceholder: 'Search for conversations...',
+    },
   },
   forgotPassword: {
     titleForgotPassword: 'Forgot Password',

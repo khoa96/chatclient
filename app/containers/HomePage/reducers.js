@@ -1,13 +1,17 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-param-reassign */
 import produce from 'immer';
-import { initialUser } from './constants';
+import { initialUser, HANLDE_CHANGE_NAVIGATION_TYPE } from './constants';
 export const initialState = {
-  user: initialState,
+  user: initialUser,
+  navigationType: 'setting',
 };
 
 const homeChatReducer = (state = initialState, action) =>
   produce(state, draff => {
     switch (action.type) {
+      case HANLDE_CHANGE_NAVIGATION_TYPE:
+        draff.navigationType = action.payload;
+        break;
       default:
         break;
     }

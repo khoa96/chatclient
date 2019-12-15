@@ -4,6 +4,10 @@ export default {
     hidenPassword: 'Ẩn mật khẩu',
     remember: 'Lưu trạng thái đăng nhập',
     titleNotification: 'Thông báo từ hệ thống NDK chat',
+    addNewUserLabel: 'Thêm Bạn Bè +',
+    addNewGroupLabel: 'Thêm Nhóm Chat +',
+    addNewPrivateChatLabel: 'Thêm Chat Riêng Tư +',
+    isOnlineNow: 'Hiện đang online',
   },
   home: {
     hello: 'chao mung ban den voi reactjs',
@@ -44,6 +48,19 @@ export default {
     notificationLabel: 'Thông Báo',
     nightModeLable: 'Chế Độ',
     logoutLabel: 'Đăng Xuất',
+    friend: {
+      allButtonLabel: 'Tất Cả',
+      onlineButtonLabel: 'Online',
+      offlineButtonLabel: 'Offline',
+      inputSearchPlaceholder: 'Tìm kiếm bạn bè...',
+    },
+    recentChat: {
+      allButtonLabel: 'Tất Cả',
+      favouritButtonLabel: 'Yêu Thích',
+      unreadButtonLabel: 'Chưa Đọc',
+      chatsTitlte: 'Các cuộc trò chuyện',
+      inputSearchPlaceholder: 'Tìm kiếm cuộc trò chuyện...',
+    },
   },
   forgotPassword: {
     titleForgotPassword: 'Quên Mật Khẩu',

@@ -5,7 +5,7 @@ export const MessageHistoryWrapper = styled.div`
   display: flex;
   padding: 16px 5px 10px 10px;
   transition: all 0.5s ease;
-  border-bottom: 1px solid ${props => props.theme.grayPrimary4};
+  border-top: 1px solid ${props => props.theme.grayPrimary4};
 
   &.active {
     border-left: 3px solid ${props => props.theme.blueMedium3};

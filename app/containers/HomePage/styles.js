@@ -22,7 +22,7 @@ export const SidebarWrapper = styled.div`
   width: 370px;
   flex-shrink: 0;
   height: 100%;
-  padding: 30px;
+  padding: 20px 20px 5px 20px;
 `;
 
 export const MainChatWrapper = styled.div`
@@ -30,7 +30,6 @@ export const MainChatWrapper = styled.div`
   flex-shirk: 0;
   min-width: 990px;
   height: 100vh;
-  border: 1px solid blue;
   display: flex;
   flex-direction: column;
 `;

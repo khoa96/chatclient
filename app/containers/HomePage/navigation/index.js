@@ -1,10 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import NavigationButton from '../components/NavigationButton';
 import { NAVIGATIONS } from './constants';
+import { getNavigationType } from '../selector';
+import { handleChangeNavigationTypes } from '../action';
 
-function Navigation() {
+function Navigation({ dispatchHandleChangeNavigationType }) {
   const handleClickNavigation = type => {
-    console.log('navigation type = ', type);
+    dispatchHandleChangeNavigationType(type);
   };
 
   const renderNavigationList = () =>
@@ -20,6 +25,20 @@ function Navigation() {
   return <React.Fragment>{renderNavigationList()}</React.Fragment>;
 }
 
-Navigation.propTypes = {};
+const mapStateToProps = createStructuredSelector({
+  navigationType: getNavigationType(),
+});
 
-export default Navigation;
+const mapDispatchToProps = dispatch => ({
+  dispatchHandleChangeNavigationType: data =>
+    dispatch(handleChangeNavigationTypes(data)),
+});
+
+Navigation.propTypes = {
+  dispatchHandleChangeNavigationType: PropTypes.func.isRequired,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Navigation);

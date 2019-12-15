@@ -8,3 +8,9 @@ export const getUserSelector = () =>
     homeChatDomainSelector,
     state => state.user,
   );
+
+export const getNavigationType = () =>
+  createSelector(
+    homeChatDomainSelector,
+    state => state.navigationType,
+  );

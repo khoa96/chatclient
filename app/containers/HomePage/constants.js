@@ -5,3 +5,4 @@ export const initialUser = {
   phone: '',
   address: '',
 };
+export const HANLDE_CHANGE_NAVIGATION_TYPE = `${CONTEXT}HANLDE_CHANGE_NAVIGATION_TYPE`;
