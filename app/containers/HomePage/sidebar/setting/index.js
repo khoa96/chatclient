@@ -1,8 +1,12 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
+import SettingPagePreview from './SettingPagePreview';
 
 function SettingPage() {
-  return <div>setting page</div>;
+  return (
+    <React.Fragment>
+      <SettingPagePreview />
+    </React.Fragment>
+  );
 }
 
 export default SettingPage;

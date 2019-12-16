@@ -1,10 +1,12 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
+import NotificationPagePreview from './NotificationPagePreview';
 
-function NotificationsPage() {
+function NotificationSidebar() {
   return (
-    <div>notification page</div>
-  )
+    <React.Fragment>
+      <NotificationPagePreview />
+    </React.Fragment>
+  );
 }
 
-export default NotificationsPage;
+export default NotificationSidebar;

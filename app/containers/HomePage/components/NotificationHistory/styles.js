@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const MessageHistoryWrapper = styled.div`
+export const NotificationHistoryWrapper = styled.div`
   width: 100%;
   display: flex;
-  padding: 16px 5px 10px 10px;
+  padding: 10px 0px 0px 10px;
   transition: all 0.5s ease;
   border-top: 1px solid ${props => props.theme.grayPrimary4};
   .icon-user {
@@ -35,24 +35,26 @@ export const ImageWrapper = styled.div`
   flex-shrink: 0;
 `;
 
-export const MessageContentWrapper = styled.div`
+export const NotificationContentWrapper = styled.div`
   flex-grow: 1;
   width: 100%;
-  padding-left: 15px;
+  padding-left: 10px;
   display: flex;
   flex-direction: column;
-  max-width: 200px;
-  .username {
-    font-size: 14px;
-    color: ${props => props.theme.darkMedium1};
+  max-width: 260px;
+  .notification-content {
+    font-size: 13px;
+    color: ${props => props.theme.darkMedium3};
     font-weight: bold;
-    display: inline-block;
+    display: block;
+    display: -webkit-box;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    font-family: 'Open-Sans-bold';
+    max-width: 250px;
   }
-  .messages {
+  .time {
     font-size: 13px;
     color: ${props => props.theme.grayPrimary12};
     text-overflow: ellipsis;
@@ -60,13 +62,4 @@ export const MessageContentWrapper = styled.div`
     overflow: hidden;
     display: inline-block;
   }
-`;
-
-export const TimeWrapper = styled.div`
-  min-width: 40px;
-  max-width: 50px;
-  flex-shrink: 0;
-  font-size: 12px;
-  color: ${props => props.theme.grayPrimary12};
-  margin-top: 5px;
 `;

@@ -13,7 +13,6 @@ function MessageHistory({
   type,
   username,
   content,
-  classNameIcon,
   time,
   isActice,
   image,
@@ -34,16 +33,24 @@ function MessageHistory({
           <p className="messages">{content}</p>
         </MessageContentWrapper>
       </UserInfoWrapper>
-      <TimeWrapper>{time}</TimeWrapper>
+      <TimeWrapper>
+        {type === 'friends' ? (
+          <span className="icon-user">
+            <i className="ion-md-person" />
+          </span>
+        ) : (
+          <span>{time}</span>
+        )}
+      </TimeWrapper>
     </MessageHistoryWrapper>
   );
 }
 
 MessageHistory.propTypes = {
+  // type is one of [friends, messages, notifications]
   type: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  classNameIcon: PropTypes.string,
   time: PropTypes.string,
   isActice: PropTypes.bool,
   image: PropTypes.any,

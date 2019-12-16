@@ -10,11 +10,19 @@ function NavigationButton({
   onClick,
   type,
   isActive,
+  notificationCount,
 }) {
   return (
-    <NavigationButtonWrapper onClick={() => onClick(type)} isActive={isActive}>
+    <NavigationButtonWrapper
+      onClick={() => onClick(type)}
+      isActive={isActive}
+      notificationCount={notificationCount}
+    >
       <span className="icon">
         <i className={classNameIcon} />
+        {notificationCount > 0 && (
+          <span className="notifications-count">{notificationCount}</span>
+        )}
       </span>
       <span className="navigation-type">{t(navigationLabel)}</span>
     </NavigationButtonWrapper>
@@ -28,6 +36,7 @@ NavigationButton.propTypes = {
   navigationLabel: PropTypes.string,
   onClick: PropTypes.func,
   isActive: PropTypes.bool,
+  notificationCount: PropTypes.number,
 };
 
 export default withTranslation()(NavigationButton);

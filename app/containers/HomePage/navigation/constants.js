@@ -17,18 +17,21 @@ export const NAVIGATIONS = [
     type: FRIEND_NAVIGATION_TYPE,
     classNameIcon: 'ion-ios-home',
     navigationLabel: 'homeChat.friendLabel',
+    notificationCount: 3,
   },
   {
     id: 3,
     type: CHAT_NAVIGATION_TYPE,
     classNameIcon: 'ion-ios-chatbubbles',
     navigationLabel: 'homeChat.recentChatLabel',
+    notificationCount: 8,
   },
   {
     id: 4,
     type: NOTIFICATION_NAVIGATION_TYPE,
     classNameIcon: 'ion-md-notifications',
     navigationLabel: 'homeChat.notificationLabel',
+    notificationCount: 20,
   },
   {
     id: 5,

@@ -59,19 +59,19 @@ export const BodyFriendWrapper = styled.div`
 
   /* width */
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: ${props => props.theme.grayPrimary2};
-    border-radius: 10px;
+    background: ${props => props.theme.grayPrimary15};
+    border-radius: 8px;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: ${props => props.theme.grayPrimary14};
-    border-radius: 10px;
+    background: ${props => props.theme.grayPrimary2};
+    border-radius: 8px;
   }
 
 `;

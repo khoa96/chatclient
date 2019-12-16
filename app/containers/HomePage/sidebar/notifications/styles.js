@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import styled from 'styled-components';
 
-export const RecentChatSidebarWrapper = styled.div`
+export const NotificationSidebarWrapper = styled.div`
   width: 100%;
   height: 100%;
 `;
 
-export const HeaderRecentChatWrapper = styled.div`
+export const HeaderNotificationWrapper = styled.div`
   width: 100%;
   min-height: 210px;
   max-height: 220px;
@@ -39,7 +39,7 @@ export const HeaderRecentChatWrapper = styled.div`
   }
   .btn-add {
     display: flex;
-    margin-top: 10px;
+    margin-top: 20px;
     justify-content: space-between;
     align-items: flex-end;
     .title {
@@ -49,7 +49,7 @@ export const HeaderRecentChatWrapper = styled.div`
     }
   }
 `;
-export const BodyRecentChatWrapper = styled.div`
+export const BodyNotificationWrapper = styled.div`
   width: 100%;
   height: calc(100vh - 220px);
   margin-top: 5px;
