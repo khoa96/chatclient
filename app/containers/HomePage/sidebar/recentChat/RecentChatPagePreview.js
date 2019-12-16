@@ -7,10 +7,10 @@ import ImageToolTip from 'containers/HomePage/components/ImageTooltip';
 import RedirectButton from 'containers/HomePage/components/RedirectButton';
 import DropdownButton from 'containers/HomePage/components/DropdownButton';
 import MessageHistory from 'containers/HomePage/components/MessageHistory';
-import { 
+import {
   RecentChatSidebarWrapper,
-  HeaderRecentChatWrapper, 
-  BodyRecentChatWrapper, 
+  HeaderRecentChatWrapper,
+  BodyRecentChatWrapper,
 } from './styles';
 
 function RecentChatPagePreview() {
@@ -25,7 +25,11 @@ function RecentChatPagePreview() {
           </div>
         </div>
         <div className="search">
-          <InputSearch placeholder="homeChat.recentChat.inputSearchPlaceholder" />
+          <InputSearch
+            placeholder="homeChat.recentChat.inputSearchPlaceholder"
+            leftClassNameIcon="ion-md-search"
+            rightClassNameIcon="ion-md-create"
+          />
         </div>
         <div className="control">
           <RedirectButton isActive text="homeChat.recentChat.allButtonLabel" />
@@ -44,6 +48,7 @@ function RecentChatPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="messages"
         />
         <MessageHistory
           username="Nhat Minh"
@@ -51,6 +56,7 @@ function RecentChatPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="messages"
         />
         <MessageHistory
           username="Dang Khoa"
@@ -58,6 +64,7 @@ function RecentChatPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="messages"
         />
         <MessageHistory
           username="Trung Hieu"
@@ -72,6 +79,7 @@ function RecentChatPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="messages"
         />
         <MessageHistory
           username="Dang Khoa"
@@ -79,6 +87,7 @@ function RecentChatPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="messages"
         />
       </BodyRecentChatWrapper>
     </RecentChatSidebarWrapper>

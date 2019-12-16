@@ -55,6 +55,7 @@ export default {
       onlineButtonLabel: 'Online',
       offlineButtonLabel: 'Offline',
       inputSearchPlaceholder: 'Search for people...',
+      friendTitle: 'Contacts',
     },
     recentChat: {
       allButtonLabel: 'All',
@@ -62,6 +63,24 @@ export default {
       unreadButtonLabel: 'Unread',
       chatsTitlte: 'Chats',
       inputSearchPlaceholder: 'Search for conversations...',
+    },
+    notification: {
+      inputSearchPlaceholder: 'Filter notifications...',
+      allButtonLabel: 'All',
+      latestButtonLabel: 'Latest',
+      oldestButtonLabel: 'Oldest',
+      notificationTitle: 'Notifications',
+    },
+    setting: {
+      settingTitle: 'Settings',
+      settingAccountLabel: 'My Account',
+      settingAccountDescription: 'Update your profile details',
+      settingChatLabel: 'Chats',
+      settingChatDescription: 'Check your chat history',
+      settingNotificationLabel: 'Notifications',
+      settingNotificationDescription: 'Turn notification on or off',
+      settingLanguageLabel: 'Language',
+      settingLanguageDescription: 'Select preferred language',
     },
   },
   forgotPassword: {

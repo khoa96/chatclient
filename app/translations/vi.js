@@ -53,6 +53,7 @@ export default {
       onlineButtonLabel: 'Online',
       offlineButtonLabel: 'Offline',
       inputSearchPlaceholder: 'Tìm kiếm bạn bè...',
+      friendTitle: 'Tất cả liên lạc',
     },
     recentChat: {
       allButtonLabel: 'Tất Cả',
@@ -60,6 +61,24 @@ export default {
       unreadButtonLabel: 'Chưa Đọc',
       chatsTitlte: 'Các cuộc trò chuyện',
       inputSearchPlaceholder: 'Tìm kiếm cuộc trò chuyện...',
+    },
+    notification: {
+      inputSearchPlaceholder: 'Tìm kiếm thông báo...',
+      allButtonLabel: 'Tất cả',
+      latestButtonLabel: 'Mới nhất',
+      oldestButtonLabel: 'Cũ nhất',
+      notificationTitle: 'Tất cả thông báo',
+    },
+    setting: {
+      settingTitle: 'Cài đặt',
+      settingAccountLabel: 'Tài Khoản Của Tôi',
+      settingAccountDescription: 'Cập nhật chi tiết hồ sơ của bạn',
+      settingChatLabel: 'Tin Nhắn',
+      settingChatDescription: 'Kiểm tra lịch sử trò chuyện của bạn',
+      settingNotificationLabel: 'Thông Báo',
+      settingNotificationDescription: 'Bật hoặc tắt thông báo',
+      settingLanguageLabel: 'Ngôn Ngữ',
+      settingLanguageDescription: 'Chọn ngôn ngữ ưa thích',
     },
   },
   forgotPassword: {

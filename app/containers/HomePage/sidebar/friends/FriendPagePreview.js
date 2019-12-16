@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import i18n from 'i18n';
 import Img from 'images/icon-512x512.png';
@@ -10,7 +9,7 @@ import MessageHistory from 'containers/HomePage/components/MessageHistory';
 import {
   FriendSidebarWrapper,
   HeaderFriendWrapper,
-  BodyFriendWrapper
+  BodyFriendWrapper,
 } from './styles';
 
 function FriendPagePreview() {
@@ -25,7 +24,11 @@ function FriendPagePreview() {
           </div>
         </div>
         <div className="search">
-          <InputSearch placeholder="homeChat.friend.inputSearchPlaceholder" />
+          <InputSearch
+            placeholder="homeChat.friend.inputSearchPlaceholder"
+            leftClassNameIcon="ion-md-search"
+            rightClassNameIcon="ion-md-person-add"
+          />
         </div>
         <div className="control">
           <RedirectButton isActive text="homeChat.friend.allButtonLabel" />
@@ -33,7 +36,7 @@ function FriendPagePreview() {
           <RedirectButton text="homeChat.friend.offlineButtonLabel" />
         </div>
         <div className="btn-add">
-          <span className="title">{i18n.t('homeChat.recentChat.chatsTitlte')}</span>
+          <span className="title">{i18n.t('homeChat.friend.friendTitle')}</span>
           <DropdownButton />
         </div>
       </HeaderFriendWrapper>
@@ -44,6 +47,7 @@ function FriendPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="friends"
         />
         <MessageHistory
           username="Nhat Minh"
@@ -51,6 +55,7 @@ function FriendPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="friends"
         />
         <MessageHistory
           username="Dang Khoa"
@@ -58,6 +63,7 @@ function FriendPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="friends"
         />
         <MessageHistory
           username="Trung Hieu"
@@ -65,6 +71,7 @@ function FriendPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="friends"
         />
         <MessageHistory
           username="Nhat Minh"
@@ -72,6 +79,7 @@ function FriendPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="friends"
         />
         <MessageHistory
           username="Dang Khoa"
@@ -79,11 +87,20 @@ function FriendPagePreview() {
           image={Img}
           isUserOnline
           time="5 mins"
+          type="friends"
+        />
+        <MessageHistory
+          username="Nhat Minh"
+          content="Nguyen Dang Khoa hoc vien cong nghe buu chinh vien thong"
+          image={Img}
+          isUserOnline
+          time="5 mins"
+          type="friends"
         />
       </BodyFriendWrapper>
     </FriendSidebarWrapper>
-  )
+  );
 }
 
-FriendPagePreview.propTypes = {}
+FriendPagePreview.propTypes = {};
 export default FriendPagePreview;

@@ -21,6 +21,23 @@ export const NavigationButtonWrapper = styled.div`
 
   .icon {
     font-size: 27px;
+    position: relative;
+    .notifications-count {
+      position: absolute;
+      right: -15px;
+      top: ${props => (props.notificationCount > 20 ? '-10px' : '-5px')};
+      display: inline-block;
+
+      background-color: ${props => props.theme.redPrimary3};
+      color: white;
+      width: ${props => (props.notificationCount > 20 ? '23px' : '20px')};
+      height: ${props => (props.notificationCount > 20 ? '23px' : '20px')};
+      border-radius: 50%;
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .navigation-type {

@@ -3,13 +3,22 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { InputTextWrapper, InputSearchWrapper } from './styles';
 
-function InputSearch({ t, value, defaultValue, onChange, name, placeholder }) {
+function InputSearch({
+  t,
+  value,
+  defaultValue,
+  onChange,
+  name,
+  placeholder,
+  leftClassNameIcon,
+  rightClassNameIcon,
+}) {
   return (
     <InputSearchWrapper>
       <InputTextWrapper>
         <button type="button" className="btn-search">
           <span>
-            <i className="ion-md-search" />
+            <i className={leftClassNameIcon} />
           </span>
         </button>
         <input
@@ -24,7 +33,7 @@ function InputSearch({ t, value, defaultValue, onChange, name, placeholder }) {
       </InputTextWrapper>
       <button type="button" className="btn-create">
         <span>
-          <i className="ion-md-create" />
+          <i className={rightClassNameIcon} />
         </span>
       </button>
     </InputSearchWrapper>
@@ -38,6 +47,8 @@ InputSearch.propTypes = {
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  leftClassNameIcon: PropTypes.string,
+  rightClassNameIcon: PropTypes.string,
 };
 
 export default withTranslation()(InputSearch);
