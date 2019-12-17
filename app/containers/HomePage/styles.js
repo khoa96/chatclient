@@ -23,6 +23,7 @@ export const SidebarWrapper = styled.div`
   flex-shrink: 0;
   height: 100%;
   padding: 20px 20px 5px 20px;
+  background-color: ${props => props.theme.grayPrimary10};
 `;
 
 export const MainChatWrapper = styled.div`

@@ -5,6 +5,7 @@ import ImageToolTip from 'containers/HomePage/components/ImageTooltip';
 import { withTranslation } from 'react-i18next';
 import SettingItem from 'containers/HomePage/components/SettingItem';
 import SettingAccount from 'containers/HomePage/sidebar/setting/account';
+import SettingChat from 'containers/HomePage/sidebar/setting/chats';
 import {
   SettingPreviewWrapper,
   HeaderSettingPreviewWrapper,
@@ -32,7 +33,7 @@ function SettingPagePreview({ t }) {
           classNameIcon="ion-md-chatboxes"
           settingTitle="homeChat.setting.settingChatLabel"
           settingDescription="homeChat.setting.settingChatDescription"
-          component={props => <SettingAccount {...props} />}
+          component={props => <SettingChat {...props} />}
         />
         <SettingItem
           classNameIcon="ion-md-notifications"
