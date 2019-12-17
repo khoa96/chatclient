@@ -79,6 +79,17 @@ export default {
       settingNotificationDescription: 'Bật hoặc tắt thông báo',
       settingLanguageLabel: 'Ngôn Ngữ',
       settingLanguageDescription: 'Chọn ngôn ngữ ưa thích',
+      account: {
+        uploadFileButtonLable: 'Cập nhật avatar',
+        uploadAvatarDescription:
+          'Để có kết quả tốt nhất, hãy sử dụng hình ảnh có kích thước ít nhất 200px x 200px ở định dạng .jpg hoặc .png!',
+        applyButton: 'Áp dụng',
+        firstNameLabel: 'Họ',
+        lastNameLabel: 'Tên',
+        emailLabel: 'Địa chỉ email',
+        passwordLabel: 'Mật khẩu',
+        addressLabel: 'Địa chỉ',
+      },
     },
   },
   forgotPassword: {

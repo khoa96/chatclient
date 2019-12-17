@@ -66,12 +66,11 @@ export const HeaderSettingItem = styled.div`
 `;
 export const ContentSettingItem = styled.div`
   width: 100%;
-  height: 400px;
   &.panel-collapse {
-    max-height: 600px;
+    max-height: 1000px;
     overflow-y: auto;
     overflow-x: hidden;
-    transition: max-height 1s ease-out;
+    transition: max-height 0.6s ease-out;
   }
   &.panel-close {
     max-height: 0;

@@ -81,6 +81,17 @@ export default {
       settingNotificationDescription: 'Turn notification on or off',
       settingLanguageLabel: 'Language',
       settingLanguageDescription: 'Select preferred language',
+      account: {
+        uploadFileButtonLable: 'Upload avatar',
+        uploadAvatarDescription:
+          'For best results, use an image at least 200px by 200px in .jpg or .png format!',
+        applyButton: 'Apply',
+        firstNameLabel: 'Firtname',
+        lastNameLabel: 'Lastname',
+        emailLabel: 'Email Address',
+        passwordLabel: 'Password',
+        addressLabel: 'Address',
+      },
     },
   },
   forgotPassword: {

@@ -35,7 +35,7 @@ class InputCheckbox extends React.PureComponent {
 
 InputCheckbox.propTypes = {
   text: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   value: PropTypes.any,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,

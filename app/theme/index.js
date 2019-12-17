@@ -42,6 +42,7 @@ const theme = {
   grayPrimary13: '#a9a9a9',
   grayPrimary14: '#a3a3a3',
   grayPrimary15: '#f3f3f3',
+  grayPrimary16: '#a2a4a7',
 
   // blue
   bluePrimary: '#4179c3',
@@ -54,6 +55,7 @@ const theme = {
   darkMedium1: '#1a1a1a',
   darkMedium2: '#c6c7c8',
   darkMedium3: '#212529',
+  darkMedium4: '#757575',
 };
 
 export default theme;
