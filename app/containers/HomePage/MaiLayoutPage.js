@@ -1,14 +1,12 @@
 import React from 'react';
 import Navigation from './navigation';
 import Sidebar from './sidebar';
+import MainChat from './mainchat';
 import {
   MainLayoutWrapper,
   NavigationWrapper,
   SidebarWrapper,
   MainChatWrapper,
-  HeaderMainChatWrapper,
-  BodyMainChatWrapper,
-  FooterMainChatWrapper,
 } from './styles';
 
 function MainLayoutPage() {
@@ -21,9 +19,7 @@ function MainLayoutPage() {
         <Sidebar />
       </SidebarWrapper>
       <MainChatWrapper>
-        <HeaderMainChatWrapper>header</HeaderMainChatWrapper>
-        <BodyMainChatWrapper>body</BodyMainChatWrapper>
-        <FooterMainChatWrapper>footer chat</FooterMainChatWrapper>
+        <MainChat />
       </MainChatWrapper>
     </MainLayoutWrapper>
   );
