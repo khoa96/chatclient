@@ -30,7 +30,7 @@ export const HeaderSettingPreviewWrapper = styled.div`
       font-size: 18px;
       font-weight: 700;
       color: black;
-      font-family: 'Open-Sans-bold';
+      font-family: 'Open-Sans-super-bold';
 
       &:hover {
         color: ${props => props.theme.blueMedium3};
