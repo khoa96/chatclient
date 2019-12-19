@@ -5,20 +5,59 @@ export const HeaderHomeChat = styled.div`
   height: 100%;
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;
-  color: red;
+  align-items: center;
+  padding: 0px 30px;
+  background-color: white;
+  border: 1px solid gray;
 
   .user-info {
-    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+    .username {
+      font-size: 18px;
+      font-family: 'Open-Sans-bold';
+      transition: all 0.4s ease;
+      cursor: pointer;
+      &:hover {
+        color: ${props => props.theme.blueMedium3};
+      }
+    }
+
+    .status-user {
+      font-size: 12px;
+      color: ${props => props.theme.grayPrimary12};
+    }
   }
-  button {
-    padding: 5px 10px;
-    text-align: center;
-    border: 1px solid grey;
-    cursor: pointer;
+  .option-chat {
+    min-width: 180px;
+    flex-shrink: 0;
+    display: flex;
+  }
+`;
+
+export const ChatCallButtonWrapper = styled.button`
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border: 1px solid ${props => props.theme.grayPrimary17};
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.grayPrimary17};
+  color: rgba(136, 136, 136, 0.5);
+  font-size: 18px;
+  transition: all 0.5s ease;
+  margin: 10px;
+
+  &:focus {
+    outline: none;
   }
 
-  .active {
+  &:hover {
+    color: white;
     background: ${props => props.theme.backgroundColorPrimary};
   }
 `;

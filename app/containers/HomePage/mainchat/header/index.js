@@ -1,37 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { HeaderHomeChat } from './styles';
+import { HeaderHomeChat, ChatCallButtonWrapper } from './styles';
+import SettingButton from './component/SettingButton';
 
 function Header({ t }) {
-  const [isActive, setIsActive] = useState(false);
-  const ref = useRef();
-  const handleClickInside = () => {
-    setIsActive(!isActive);
-  };
-  const handleClickOuside = () => {
-    setIsActive(!isActive);
-  };
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOuside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOuside);
-    };
-  }, []);
   return (
     <HeaderHomeChat>
       <p className="user-info">
         <span className="username">Nguyen Dang Khoa</span>
-        <span className="status-user">Is online now</span>
+        <span className="status-user">{t('commons.isOnlineNow')}</span>
       </p>
-      <button
-        type="button"
-        ref={ref}
-        onClick={handleClickInside}
-        className={isActive ? 'active' : ''}
-      >
-        test click out side
-      </button>
+      <SettingButton />
+      <div className="option-chat">
+        <ChatCallButtonWrapper>
+          <i className="ion-md-call" />
+        </ChatCallButtonWrapper>
+        <ChatCallButtonWrapper>
+          <i className="ion-md-videocam" />
+        </ChatCallButtonWrapper>
+        <ChatCallButtonWrapper>
+          <i className="ion-md-settings" />
+        </ChatCallButtonWrapper>
+        <ChatCallButtonWrapper>
+          <i className="ion-md-apps" />
+        </ChatCallButtonWrapper>
+      </div>
     </HeaderHomeChat>
   );
 }

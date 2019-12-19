@@ -24,7 +24,7 @@ function SettingPagePreview({ t }) {
       <p className="setting-title">{t('homeChat.setting.settingTitle')}</p>
       <BodySettingPreviewWrapper>
         <SettingItem
-          classNameIcon="ion-md-person"
+          classNameIcon="ion-ios-person"
           settingTitle="homeChat.setting.settingAccountLabel"
           settingDescription="homeChat.setting.settingAccountDescription"
           component={props => <SettingAccount {...props} />}

@@ -13,6 +13,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Open-Sans-super-bold';
+  src: url('../font/OpenSans-ExtraBold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-size: 14px;
   font-family: 'Open-Sans-normal' !important;
